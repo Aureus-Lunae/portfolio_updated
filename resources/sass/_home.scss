@@ -1,0 +1,32 @@
+/* Home */
+
+.title_home {
+	margin: 8px 0;
+	font-size: 42px;
+	font-weight: 700;
+}
+
+.subtitle_home {
+	margin: 8px 0;
+	padding: 4px 0;
+	font-size: 30px;
+	border-top: 2px solid $gold-dark;
+	border-bottom: 2px solid $gold-dark;
+	color: $gold-dark;
+	font-weight: 700;
+	text-align: center;
+}
+
+.content_home {
+	margin: 8px 0;
+	font-size: 20px;
+}
+
+.titles {
+	padding: 4px 0;
+	margin: 8px 0;
+	font-size: 20px;
+	text-align: center;
+	border-top: 2px solid $gold-dark;
+	border-bottom: 2px solid $gold-dark;
+}
