@@ -1,14 +1,93 @@
 
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Merriweather|Roboto:400,700');
+
+/**
+ * font-family: 'Merriweather', serif;
+ * font-family: 'Roboto', sans-serif;
+ */
 
 // Variables
 @import 'variables';
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
-
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+html, body{
+	margin: 0;
+	font-family: $font-serif;
+	color: $gold;
 }
+
+.stars {
+	position: fixed;
+	height: 100vh;
+	width: 100vw;
+	background: #000 url(/img/stars.png) repeat top center;
+	z-index: -1;
+
+	.twinkling {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		width: 100vw;
+		height: 100vh;
+		display: block;
+		background: transparent url(/img/twinkling.png) repeat top center;
+		animation: twinkling-stars 100s linear infinite;
+	}
+}
+
+@keyframes twinkling-stars {
+  0% {
+    background-position: 0 0;
+  }
+
+  25% {
+    background-position: -625px 312px;
+  }
+
+  50% {
+    background-position: 0 624px;
+  }
+  75% {
+    background-position: 625px 312px;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/* Basic Layouts */
+
+#page_wrapper {
+	width: 100%;
+	min-height: 100vh;
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	grid-template-areas:
+		"header"
+		"content"
+		"footer"
+}
+
+#footer_wrapper,
+#content-wrapper,
+#header_Wrapper {
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+#header_wrapper {
+	grid-area: header;
+}
+
+#content_wrapper {
+	grid-area: content;
+}
+
+#footer_wrapper {
+	grid-area: footer;
+}
+
+
+@import 'media';
