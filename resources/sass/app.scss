@@ -57,37 +57,7 @@ html, body{
   }
 }
 
-/* Basic Layouts */
+@import 'layout';
 
-#page_wrapper {
-	width: 100%;
-	min-height: 100vh;
-	display: grid;
-	grid-template-rows: auto 1fr auto;
-	grid-template-areas:
-		"header"
-		"content"
-		"footer"
-}
-
-#footer_wrapper,
-#content-wrapper,
-#header_Wrapper {
-	padding: 10px;
-	box-sizing: border-box;
-}
-
-#header_wrapper {
-	grid-area: header;
-}
-
-#content_wrapper {
-	grid-area: content;
-}
-
-#footer_wrapper {
-	grid-area: footer;
-}
-
-
+@import 'shapes';
 @import 'media';

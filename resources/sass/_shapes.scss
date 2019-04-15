@@ -1,0 +1,54 @@
+.moon-perspective {
+	width: 150px;
+	height: 150px;
+	perspective: 1000px;
+	perspective-origin: 50% 50%;
+
+
+	.moon-freya {
+		background: url('/img/site/freya-150.png') repeat-x;
+		animation: move-moonfreya 60s infinite linear;
+		display: block;
+		height: 100%;
+		width: 100%;
+		position: relative;
+		border-radius: 50%;
+		transform-style: preserve-3d;
+		z-index: 3;
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border-radius: 50%;
+			box-shadow: inset -20px 8px 40px 10px rgba(0, 0, 0, 0.5);
+			z-index: 3;
+		}
+
+		.moon-overlay {
+		  position: absolute;
+		  content: "";
+		  top: 0;
+		  left: 0;
+		  width: 100%;
+		  height: 100%;
+		  border-radius: 50%;
+		  opacity: 0.3;
+		  background: $gold-dark;
+		  z-index: 5;
+		}
+	}
+}
+
+@keyframes move-moonfreya {
+	0% {
+		background-position: -300px 0;
+	}
+
+	100% {
+		background-position: 0 0;
+	}
+}

@@ -50,6 +50,7 @@ html, body {
 #page_wrapper {
   width: 100%;
   min-height: 100vh;
+  grid-gap: 10px;
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-areas: "header" "content" "footer";
@@ -68,14 +69,166 @@ html, body {
 
 #content_wrapper {
   grid-area: content;
+  padding: 16px;
 }
 
 #footer_wrapper {
   grid-area: footer;
 }
 
+/* Content Layouts */
+#main {
+  grid-area: main;
+}
+
+#sidebar {
+  grid-area: aside;
+}
+
+#side_right_r,
+#side_left_r,
+#side_left,
+#side_right {
+  display: grid;
+  grid-gap: 10px;
+}
+
+#side_right,
+#side_left {
+  grid-template-areas: "main" "aside";
+}
+
+#side_right_r,
+#side_left_r {
+  grid-template-areas: "aside" "main";
+}
+
+/* Alignments */
+.align_center {
+  align-items: center;
+  align-content: center;
+}
+
+.justify_center {
+  justify-content: center;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.maxheight {
+  height: 100%;
+}
+
+.maxwidth {
+  width: 100%;
+}
+
+.moon-perspective {
+  width: 150px;
+  height: 150px;
+  perspective: 1000px;
+  perspective-origin: 50% 50%;
+}
+.moon-perspective .moon-freya {
+  background: url("/img/site/freya-150.png") repeat-x;
+  animation: move-moonfreya 60s infinite linear;
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  z-index: 3;
+}
+.moon-perspective .moon-freya:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-shadow: inset -20px 8px 40px 10px rgba(0, 0, 0, 0.5);
+  z-index: 3;
+}
+.moon-perspective .moon-freya .moon-overlay {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  opacity: 0.3;
+  background: #bf9b30;
+  z-index: 5;
+}
+
+@keyframes move-moonfreya {
+  0% {
+    background-position: -300px 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
 /* Media Queries */
+@media (min-width: 768px) {
+  .moon-perspective {
+    width: 300px;
+    height: 300px;
+  }
+  .moon-perspective .moon-freya {
+    background: url("/img/site/freya-mobile.png") repeat-x;
+  }
+  .moon-perspective .moon-freya:before {
+    box-shadow: inset -30px 10px 50px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  @keyframes move-moonfreya {
+    0% {
+      background-position: -600px 0;
+    }
+    100% {
+      background-position: 0 0;
+    }
+  }
+}
 @media (min-width: 992px) {
+  .moon-perspective {
+    width: 450px;
+    height: 450px;
+  }
+  .moon-perspective .moon-freya {
+    background: url("/img/site/freya.png") repeat-x;
+  }
+  .moon-perspective .moon-freya:before {
+    box-shadow: inset -30px 10px 50px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  @keyframes move-moonfreya {
+    0% {
+      background-position: -900px 0;
+    }
+    100% {
+      background-position: 0 0;
+    }
+  }
+  #side_right_r,
+#side_right {
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: "main aside" "main aside";
+  }
+
+  #side_left_r,
+#side_left {
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: "aside main" "aside main";
+  }
+
   #page_wrapper {
     grid-template-columns: 1fr 3fr 1fr;
     grid-template-rows: auto 1fr 1fr auto;
@@ -83,6 +236,18 @@ html, body {
   }
 }
 @media (min-width: 1200px) {
+  #side_right_r,
+#side_right {
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas: "main aside" "main aside";
+  }
+
+  #side_left_r,
+#side_left {
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas: "aside main" "aside main";
+  }
+
   #page_wrapper {
     grid-template-columns: 1fr 4fr 1fr;
     grid-template-rows: auto 1fr 1fr auto;
